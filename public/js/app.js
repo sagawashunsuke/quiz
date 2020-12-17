@@ -2195,6 +2195,11 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     TheHeader: _layout_TheHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     TheFooter: _layout_TheFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    errors: {
+      type: Object | Array
+    }
   }
 });
 
@@ -55414,7 +55419,7 @@ var render = function() {
     [
       _c("the-header"),
       _vm._v(" "),
-      _c("router-view"),
+      _c("router-view", { attrs: { errors: _vm.errors } }),
       _vm._v(" "),
       _c("the-footer")
     ],
