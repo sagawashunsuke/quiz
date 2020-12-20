@@ -55,9 +55,9 @@
             </dl>
           </section>
         </article>
+        <the-sidebar></the-sidebar>
       </div>
     </main>
-    <the-footer></the-footer>
   </div>
 </template>
 

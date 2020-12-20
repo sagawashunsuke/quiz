@@ -39053,11 +39053,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("main", [
-        _c("div", { staticClass: "container" }, [
+  return _c("div", [
+    _c("main", [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
           _c("article", { staticClass: "col-md-8 col-xs-12" }, [
             _vm._m(0),
             _vm._v(" "),
@@ -39162,14 +39163,14 @@ var render = function() {
               ],
               2
             )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("the-footer")
-    ],
-    1
-  )
+          ]),
+          _vm._v(" "),
+          _c("the-sidebar")
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
