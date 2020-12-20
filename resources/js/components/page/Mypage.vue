@@ -8,7 +8,7 @@
               <img class="mypage__logo" src="/images/mypage-icon.png" />マイページ
             </h2>
             <h3>直近 回の正解率推移</h3>
-            <canvas ></canvas>
+            <canvas></canvas>
           </section>
         </article>
         <the-sidebar></the-sidebar>
@@ -23,5 +23,11 @@ export default {
   components: {
     TheSidebar
   },
+  mounted() {
+    this.$http.get("/api/user").then(response => {
+      console.log(response.data);
+    });
+  }
 };
 </script>
+
