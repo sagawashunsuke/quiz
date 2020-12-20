@@ -7,6 +7,13 @@
             <div class="panel panel-default">
               <div class="panel-heading text-center">ユーザー登録</div>
 
+              <div class="form-group has-error" v-if="errors.length !== 0">
+                <div class="alert alert-danger text-center">
+                  ユーザー登録実行時にエラーが発生しました
+                  <div v-for="(error, key, index) in errors" :key="index">{{error}}</div>
+                </div>
+              </div>
+
               <div class="panel-body">
                 <ValidationObserver
                   class="form-horizontal"
@@ -88,10 +95,7 @@
 
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                      <button
-                        type="submit"
-                        class="btn btn-primary"
-                      >登録</button>
+                      <button type="submit" class="btn btn-primary">登録</button>
                     </div>
                   </div>
                 </ValidationObserver>
@@ -105,14 +109,8 @@
 </template>
 
 <script>
-import {
-  ValidationProvider,
-  ValidationObserver,
-  extend
-} from "vee-validate";
+import { ValidationProvider, ValidationObserver, extend } from "vee-validate";
 import { required, max, min, email, confirmed } from "vee-validate/dist/rules";
-import TheHeader from "../layout/TheHeader";
-import TheFooter from "../layout/TheFooter";
 extend("required", {
   ...required,
   message: "{_field_}は必須です"
@@ -136,7 +134,7 @@ extend("confirmed", {
 export default {
   components: {
     ValidationProvider,
-    ValidationObserver,
+    ValidationObserver
   },
   data() {
     return {
@@ -146,8 +144,13 @@ export default {
       password_confirmation: "",
       csrf: document
         .querySelector('meta[name="csrf-token"]')
-        .getAttribute("content"),
+        .getAttribute("content")
     };
+  },
+  props: {
+    errors: {
+      type: Array | Object
+    }
   },
   methods: {
     async register() {
