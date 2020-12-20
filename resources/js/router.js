@@ -2,23 +2,25 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/page/Home'
 import Quiz from './components/page/Quiz'
-import Register from './components/page/Register'
 import Login from './components/page/Login'
+import Register from './components/page/Register'
+import Mypage from './components/page/Mypage'
+
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history', // SPAのURLにはhistoryモード(#ハッシュが付かないタイプを使います)
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home // URL「/」に対してHomeコンポーネントを使うという意味です
+      component: Home
     },
     {
       path: '/quiz',
       name: 'quiz',
-      component: Quiz // URL「/quiz」に対してQuizコンポーネントを使うという意味です
+      component: Quiz
     },
     {
       path: '/login',
@@ -30,5 +32,11 @@ export default new Router({
       name: 'register',
       component: Register
     },
+    {
+      path: '/mypage',
+      name: 'mypage',
+      component: Mypage,
+    },
   ]
 })
+
